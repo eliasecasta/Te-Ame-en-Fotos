@@ -4,6 +4,16 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Nuestra Historia · 2014 — ∞</title>
+    <meta name="description" content="E & B · Una historia que comenzó en 2014..." />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <meta property="og:title" content="E & B · Nuestra Historia · 2014 — ∞" />
+    <meta property="og:description" content="Un recorrido por los lugares que guardan nuestra historia." />
+    <meta property="og:image" content="./og-image.svg" />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="E & B · Nuestra Historia" />
+    <meta name="twitter:description" content="Un recorrido por los lugares que guardan nuestra historia." />
+    <meta name="twitter:image" content="./og-image.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -68,6 +78,17 @@
       </div>
       <button class="music-player-toggle" id="musicPlayerToggle">
         <span class="music-toggle-icon">♪</span>
+        <div class="music-mini-preview" id="musicMiniPreview">
+          <span class="mini-preview-bars" aria-hidden="true">
+            <span></span>
+            <span></span>
+            <span></span>
+          </span>
+          <div class="mini-preview-content" id="miniPreviewContent">
+            <span class="mini-preview-title" id="miniPreviewTitle">—</span>
+            <span class="mini-preview-artist" id="miniPreviewArtist">—</span>
+          </div>
+        </div>
       </button>
     </div>
 
@@ -130,6 +151,9 @@
           <span>Desliza hacia abajo</span>
           <div class="scroll-line"></div>
         </div>
+        <p class="hero-hint reveal-up">
+          <em>Pista: ¿Cuál era el apodo que te gustaba decirme siempre?</em>
+        </p>
       </div>
     </section>
 
@@ -256,13 +280,9 @@
               desayunos eran gratis ese día.
             </figcaption>
           </figure>
-          <figure class="masonry-item masonry-item-landscape">
-            <img src="../assets/img/danyalberca.jpg" alt="Dany alberca" />
-            <figcaption>
-              La alberca de Dany — la casa de un amigo que frecuentábamos
-              bastante.
-            </figcaption>
-          </figure>
+        </div>
+
+        <div class="masonry-grid masonry-grid-continued reveal-up">
           <figure class="masonry-item">
             <img
               src="../assets/img/la primera vez que vimos una alberca en nuestras vidas y teniamos que tomarnos una foto en ella.jpg"
@@ -284,6 +304,7 @@
             muted
             loop
             playsinline
+            preload="metadata"
             style="
               width: 100%;
               aspect-ratio: 9/16;
@@ -292,11 +313,11 @@
             "
           >
             <source
-              src="../assets/vid/me da mucha risa que en este video sin vernos, sabiamos exactamente las respuestas correctas y nos conocíamos tan bien.mov"
+              src="../assets/vid/me da mucha risa que en este video sin vernos, sabiamos exactamente las respuestas correctas y nos conociamos tan bien.mov"
               type="video/quicktime"
             />
             <source
-              src="../assets/vid/me da mucha risa que en este video sin vernos, sabiamos exactamente las respuestas correctas y nos conocíamos tan bien.mov"
+              src="../assets/vid/me da mucha risa que en este video sin vernos, sabiamos exactamente las respuestas correctas y nos conociamos tan bien.mov"
               type="video/mp4"
             />
           </video>
@@ -483,14 +504,7 @@
           </div>
         </div>
 
-        <div class="photo-grid three-col reveal-up">
-          <figure class="photo-frame">
-            <img
-              src="../assets/img/mi super modelo frente a la torre eifel, opacaste a la torre.jpg"
-              alt="Super modelo"
-            />
-            <figcaption>Mi super modelo, opacando a la Torre.</figcaption>
-          </figure>
+        <div class="photo-grid two-col reveal-up">
           <figure class="photo-frame">
             <img
               src="../assets/img/que linda te ves frente a la torre eiffel.jpg"

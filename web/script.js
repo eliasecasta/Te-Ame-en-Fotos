@@ -222,6 +222,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const musicVolumeSlider = document.getElementById('musicVolume');
     const musicTitle = document.getElementById('musicTitle');
     const musicArtist = document.getElementById('musicArtist');
+    const miniPreviewTitle = document.getElementById('miniPreviewTitle');
+    const miniPreviewArtist = document.getElementById('miniPreviewArtist');
 
     let currentTrackIndex = 0;
     let activePlayer = audioPlayer1;
@@ -282,12 +284,12 @@ document.addEventListener('DOMContentLoaded', () => {
         if (playlist.length === 0) return;
         const track = playlist[currentTrackIndex];
         
-        // Create marquee effect if title is too long
+        // Update expanded player
         const titleElement = musicTitle;
         titleElement.classList.remove('marquee');
         titleElement.textContent = track.title;
         
-        // Check if text overflows
+        // Check if text overflows and add marquee
         setTimeout(() => {
             if (titleElement.scrollWidth > titleElement.clientWidth) {
                 titleElement.innerHTML = `${track.title} &nbsp;&nbsp;&nbsp; ${track.title}`;
@@ -296,10 +298,26 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 100);
         
         musicArtist.textContent = track.artist;
+        
+        // Update mini preview
+        miniPreviewTitle.textContent = track.title;
+        miniPreviewArtist.textContent = track.artist;
+        miniPreviewTitle.classList.remove('scrolling');
+        
+        // Check if mini preview title needs scrolling
+        setTimeout(() => {
+            if (miniPreviewTitle.scrollWidth > miniPreviewTitle.clientWidth) {
+                miniPreviewTitle.innerHTML = `${track.title} &nbsp;&nbsp;&nbsp; ${track.title}`;
+                miniPreviewTitle.classList.add('scrolling');
+            }
+        }, 150);
     }
 
     function play() {
         if (playlist.length === 0) return;
+        if (!activePlayer.src) {
+            loadTrack(currentTrackIndex, activePlayer);
+        }
         const playPromise = activePlayer.play();
         if (playPromise) {
             playPromise.then(() => {
@@ -437,12 +455,12 @@ document.addEventListener('DOMContentLoaded', () => {
                     document.removeEventListener('click', enableAutoplay);
                     document.removeEventListener('touchstart', enableAutoplay);
                     document.removeEventListener('keydown', enableAutoplay);
-                    document.removeEventListener('scroll', enableAutoplay);
+                    window.removeEventListener('scroll', enableAutoplay);
                 };
                 document.addEventListener('click', enableAutoplay, { once: true });
                 document.addEventListener('touchstart', enableAutoplay, { once: true });
                 document.addEventListener('keydown', enableAutoplay, { once: true });
-                document.addEventListener('scroll', enableAutoplay, { once: true });
+                window.addEventListener('scroll', enableAutoplay, { once: true, passive: true });
             });
         }
     }
@@ -482,19 +500,27 @@ document.addEventListener('DOMContentLoaded', () => {
     const videoUnmuteBtn = document.getElementById('videoUnmuteBtn');
 
     if (featureVideo) {
+        // Force video to load by setting src directly
+        const videoSrc = '../assets/vid/me da mucha risa que en este video sin vernos, sabiamos exactamente las respuestas correctas y nos conociamos tan bien.mov';
+        featureVideo.src = videoSrc;
+        featureVideo.load();
+
         const videoObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
-                if (entry.isIntersecting && entry.intersectionRatio >= 0.5) {
+                if (entry.isIntersecting && entry.intersectionRatio >= 0.3) {
                     // Intentar reproducir
-                    featureVideo.play().catch(() => {
-                        // Autoplay bloqueado, pero el video está en muted así que debería funcionar
-                    });
+                    const playPromise = featureVideo.play();
+                    if (playPromise) {
+                        playPromise.catch(err => {
+                            console.log('Video autoplay blocked:', err.message);
+                        });
+                    }
                 } else {
                     featureVideo.pause();
                 }
             });
         }, {
-            threshold: [0, 0.5, 1.0]
+            threshold: [0, 0.3, 0.5, 1.0]
         });
         videoObserver.observe(featureVideo);
 
@@ -504,6 +530,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (featureVideo.muted) {
                     featureVideo.muted = false;
                     featureVideo.volume = 0.7;
+                    featureVideo.play().catch(err => {
+                        console.log('Video play blocked after unmute:', err.message);
+                    });
                     videoUnmuteBtn.classList.add('unmuted');
                     videoUnmuteBtn.querySelector('.unmute-icon').textContent = '🔊';
                     videoUnmuteBtn.querySelector('.unmute-text').textContent = 'Sonido activado';
@@ -520,6 +549,21 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
     }
+
+    // ===========================
+    // INTENTAR AUTOPLAY DE MÚSICA AL HACER SCROLL
+    // ===========================
+    let musicAutoplayTriggered = false;
+    
+    function triggerMusicOnScroll() {
+        if (!musicAutoplayTriggered && !isPlaying && playlist.length > 0) {
+            musicAutoplayTriggered = true;
+            play();
+            window.removeEventListener('scroll', triggerMusicOnScroll);
+        }
+    }
+    
+    window.addEventListener('scroll', triggerMusicOnScroll, { passive: true });
 
     // ===========================
     // EASTER EGG: Escribir "charrito"
