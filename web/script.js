@@ -11,14 +11,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const playlist = [
     {
-      file: 'Un Café Con Dios - Corridos de Fe para Jesus.mp3',
-      title: 'Un Café Con Dios',
-      artist: 'Corridos de Fe para Jesús',
-    },
-    {
       file: 'Paradise - Coldplay.mp3',
       title: 'Paradise',
       artist: 'Coldplay',
+    },
+    {
+      file: 'Un Café Con Dios - Corridos de Fe para Jesus.mp3',
+      title: 'Un Café Con Dios',
+      artist: 'Corridos de Fe para Jesús',
     },
     {
       file: 'Ojos Verdes - Julion Alvarez.mp3',
@@ -31,6 +31,11 @@ document.addEventListener('DOMContentLoaded', () => {
       artist: 'Luis Fonsi & Daddy Yankee',
     },
     {
+      file: 'Cancion para Regresar - Sebastina Yatra.mp3',
+      title: 'Canción para Regresar',
+      artist: 'Sebastián Yatra',
+    },
+    {
       file: 'Pesao - Cartel de Santa.mp3',
       title: 'Pesao',
       artist: 'Cartel de Santa',
@@ -39,11 +44,6 @@ document.addEventListener('DOMContentLoaded', () => {
       file: 'Leave a light on - Tom Walker.mp3',
       title: 'Leave a Light On',
       artist: 'Tom Walker',
-    },
-    {
-      file: 'Cancion para Regresar - Sebastina Yatra.mp3',
-      title: 'Canción para Regresar',
-      artist: 'Sebastián Yatra',
     },
   ];
 
