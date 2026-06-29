@@ -233,6 +233,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let isFading = false;
     let baseVolume = 0.4;
     let musicAutoplayAttempted = false;
+    let musicUnlockListenersInstalled = false;
 
     // Aplicar volumen inicial
     audioPlayer1.volume = 0;
@@ -245,7 +246,7 @@ document.addEventListener('DOMContentLoaded', () => {
             musicPlayerToggle.style.display = 'none';
             // Si no está reproduciendo, intentar reproducir al abrir
             if (!isPlaying && playlist.length > 0) {
-                play();
+                play().catch(installMusicUnlockListeners);
             }
         }
     });
@@ -314,13 +315,13 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function play() {
-        if (playlist.length === 0) return;
+        if (playlist.length === 0) return Promise.resolve();
         if (!activePlayer.src) {
             loadTrack(currentTrackIndex, activePlayer);
         }
         const playPromise = activePlayer.play();
         if (playPromise) {
-            playPromise.then(() => {
+            return playPromise.then(() => {
                 fadeAudio(activePlayer, baseVolume, 1000);
                 isPlaying = true;
                 musicPlayBtn.textContent = '⏸';
@@ -328,9 +329,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 startCrossfadeMonitor();
             }).catch(err => {
                 console.log('Autoplay bloqueado por el navegador:', err.message);
-                // El navegador bloqueó el autoplay, esperar interacción
+                throw err;
             });
         }
+        return Promise.resolve();
     }
 
     function pause() {
@@ -434,40 +436,46 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+    function removeMusicUnlockListeners() {
+        if (!musicUnlockListenersInstalled) return;
+        musicUnlockListenersInstalled = false;
+        document.removeEventListener('click', unlockMusicFromInteraction);
+        document.removeEventListener('pointerdown', unlockMusicFromInteraction);
+        document.removeEventListener('touchstart', unlockMusicFromInteraction);
+        document.removeEventListener('keydown', unlockMusicFromInteraction);
+        window.removeEventListener('wheel', unlockMusicFromInteraction);
+        window.removeEventListener('scroll', unlockMusicFromInteraction);
+    }
+
+    function unlockMusicFromInteraction() {
+        if (isPlaying || playlist.length === 0) {
+            removeMusicUnlockListeners();
+            return;
+        }
+        play().then(removeMusicUnlockListeners).catch(() => {});
+    }
+
+    function installMusicUnlockListeners() {
+        if (musicUnlockListenersInstalled || isPlaying || playlist.length === 0) return;
+        musicUnlockListenersInstalled = true;
+        document.addEventListener('click', unlockMusicFromInteraction);
+        document.addEventListener('pointerdown', unlockMusicFromInteraction);
+        document.addEventListener('touchstart', unlockMusicFromInteraction, { passive: true });
+        document.addEventListener('keydown', unlockMusicFromInteraction);
+        window.addEventListener('wheel', unlockMusicFromInteraction, { passive: true });
+        window.addEventListener('scroll', unlockMusicFromInteraction, { passive: true });
+    }
+
     // Intentar autoplay de música al cargar la página
     function attemptMusicAutoplay() {
         if (playlist.length === 0 || musicAutoplayAttempted) return;
         musicAutoplayAttempted = true;
-
-        // Intentar reproducir directamente
-        const playPromise = activePlayer.play();
-        if (playPromise) {
-            playPromise.then(() => {
-                fadeAudio(activePlayer, baseVolume, 2000);
-                isPlaying = true;
-                musicPlayBtn.textContent = '⏸';
-                musicPlayerToggle.classList.add('playing');
-                startCrossfadeMonitor();
-            }).catch(() => {
-                // Autoplay bloqueado, esperar primera interacción del usuario
-                const enableAutoplay = () => {
-                    play();
-                    document.removeEventListener('click', enableAutoplay);
-                    document.removeEventListener('touchstart', enableAutoplay);
-                    document.removeEventListener('keydown', enableAutoplay);
-                    window.removeEventListener('scroll', enableAutoplay);
-                };
-                document.addEventListener('click', enableAutoplay, { once: true });
-                document.addEventListener('touchstart', enableAutoplay, { once: true });
-                document.addEventListener('keydown', enableAutoplay, { once: true });
-                window.addEventListener('scroll', enableAutoplay, { once: true, passive: true });
-            });
-        }
+        play().then(removeMusicUnlockListeners).catch(installMusicUnlockListeners);
     }
 
     // Eventos de los botones
     musicPlayBtn.addEventListener('click', () => {
-        if (isPlaying) pause(); else play();
+        if (isPlaying) pause(); else play().catch(installMusicUnlockListeners);
     });
 
     musicPrevBtn.addEventListener('click', prevTrack);
@@ -550,20 +558,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // ===========================
-    // INTENTAR AUTOPLAY DE MÚSICA AL HACER SCROLL
-    // ===========================
-    let musicAutoplayTriggered = false;
-    
-    function triggerMusicOnScroll() {
-        if (!musicAutoplayTriggered && !isPlaying && playlist.length > 0) {
-            musicAutoplayTriggered = true;
-            play();
-            window.removeEventListener('scroll', triggerMusicOnScroll);
-        }
-    }
-    
-    window.addEventListener('scroll', triggerMusicOnScroll, { passive: true });
+    installMusicUnlockListeners();
 
     // ===========================
     // EASTER EGG: Escribir "charrito"
