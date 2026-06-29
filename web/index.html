@@ -1,0 +1,988 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nuestra Historia · 2014 — ∞</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@200;300;400;500&family=Dancing+Script:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Música de fondo con crossfade -->
+    <audio id="audioPlayer1" preload="auto"></audio>
+    <audio id="audioPlayer2" preload="auto"></audio>
+
+    <!-- Reproductor de música flotante -->
+    <div class="music-player" id="musicPlayer">
+      <div class="music-player-expanded" id="musicPlayerExpanded">
+        <div class="music-player-header">
+          <span class="music-player-icon">♪</span>
+          <span class="music-player-label">Nuestra música</span>
+          <button class="music-player-collapse" id="musicPlayerCollapse">
+            ×
+          </button>
+        </div>
+        <div class="music-player-info">
+          <p class="music-player-title" id="musicTitle">—</p>
+          <p class="music-player-artist" id="musicArtist">—</p>
+        </div>
+        <div class="music-player-controls">
+          <button
+            class="music-btn music-btn-prev"
+            id="musicPrev"
+            title="Anterior"
+          >
+            ⏮
+          </button>
+          <button
+            class="music-btn music-btn-play"
+            id="musicPlay"
+            title="Play/Pause"
+          >
+            ▶
+          </button>
+          <button
+            class="music-btn music-btn-next"
+            id="musicNext"
+            title="Siguiente"
+          >
+            ⏭
+          </button>
+        </div>
+        <div class="music-player-volume">
+          <span class="volume-icon">🔊</span>
+          <input
+            type="range"
+            id="musicVolume"
+            class="volume-slider"
+            min="0"
+            max="100"
+            value="40"
+          />
+        </div>
+      </div>
+      <button class="music-player-toggle" id="musicPlayerToggle">
+        <span class="music-toggle-icon">♪</span>
+      </button>
+    </div>
+
+    <!-- Ambient overlay -->
+    <div class="ambient-overlay" id="ambientOverlay"></div>
+
+    <!-- Preloader -->
+    <div class="preloader" id="preloader">
+      <div class="preloader-heart">
+        <span>♡</span>
+      </div>
+      <p class="preloader-text">Un viaje a través del tiempo...</p>
+    </div>
+
+    <!-- Navegación fija -->
+    <nav class="floating-nav" id="floatingNav">
+      <div class="nav-progress" id="navProgress"></div>
+      <a href="#inicio" class="nav-dot active" data-section="inicio">
+        <span class="nav-label">Inicio</span>
+      </a>
+      <a href="#origen" class="nav-dot" data-section="origen">
+        <span class="nav-label">2014</span>
+      </a>
+      <a href="#momentos" class="nav-dot" data-section="momentos">
+        <span class="nav-label">Momentos</span>
+      </a>
+      <a href="#mar" class="nav-dot" data-section="mar">
+        <span class="nav-label">El Mar</span>
+      </a>
+      <a href="#paris" class="nav-dot" data-section="paris">
+        <span class="nav-label">París</span>
+      </a>
+      <a href="#castillos" class="nav-dot" data-section="castillos">
+        <span class="nav-label">Castillos</span>
+      </a>
+      <a href="#especial" class="nav-dot" data-section="especial">
+        <span class="nav-label">Especial</span>
+      </a>
+      <a href="#continuar" class="nav-dot" data-section="continuar">
+        <span class="nav-label">Continuar</span>
+      </a>
+    </nav>
+
+    <!-- Hero / Inicio -->
+    <section class="hero" id="inicio">
+      <div class="hero-particles" id="particles"></div>
+      <div class="hero-content">
+        <div class="hero-year reveal-up">2014 — ∞</div>
+        <h1 class="hero-title reveal-up">
+          <span class="hero-line">Para ti,</span>
+          <span class="hero-line hero-line-italic">que fuiste,</span>
+          <span class="hero-line hero-line-italic"
+            >y que en algún rincón, aún sigues siendo.</span
+          >
+        </h1>
+        <p class="hero-subtitle reveal-up">
+          Un recorrido por los lugares que guardan nuestra historia.
+        </p>
+        <div class="hero-scroll reveal-up">
+          <span>Desliza hacia abajo</span>
+          <div class="scroll-line"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Origen 2014 -->
+    <section class="section" id="origen">
+      <div class="section-inner">
+        <div class="section-header reveal-up">
+          <span class="section-number">01</span>
+          <h2 class="section-title">El día que todo cambió</h2>
+          <p class="section-subtitle">2014 · Donde todo empezó</p>
+        </div>
+
+        <div class="prose reveal-up">
+          <p>
+            Mi primera clase de universidad. Entré al salón y ahí estabas tú —
+            una chica tímida, en el mismo grupo, con una playera azul marino y
+            un pantalón negro. No lo sabía todavía, pero ese día el mundo entero
+            se detuvo para mí. Fue amor a primera vista — de esos que no se
+            explican, solo se sienten.
+          </p>
+          <p>
+            Pasarían semanas, meses, y una vez, al agarrarnos de la mano por
+            primera vez, me dijiste algo que jamás he olvidado:
+            <em>"siento mariposas en el estómago"</em>.
+          </p>
+          <p>Yo también las sentía.</p>
+          <p>
+            Nunca fui muy expresivo ni comunicativo. Pero había otras formas de
+            demostrarte lo que sentía — con la comida que te preparaba, con mi
+            forma de verte cuando no te dabas cuenta, de abrazarte, de cuidarte
+            a mi manera. Así te amaba yo: en silencio, pero con todo.
+          </p>
+        </div>
+
+        <div class="memory-card reveal-up">
+          <div class="memory-card-inner">
+            <div class="memory-image">
+              <img
+                src="../assets/img/agarrandonos la mano en la arena en la playa de nuevo vallarta.jpg"
+                alt="Nuestras manos"
+              />
+            </div>
+            <div class="memory-caption">
+              <p class="memory-quote">"Mariposas en el estómago."</p>
+              <p class="memory-note">
+                Las que me diste tú, y las que me siguen dando cada recuerdo
+                tuyo.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="photo-grid two-col reveal-up">
+          <figure class="photo-frame">
+            <img
+              src="../assets/img/de las primeras veces que empezamos con el trend de tu volteando a ver a un paisaje bonito mientras me agarras la mano en la playa.jpg"
+              alt="Manos en la playa"
+            />
+            <figcaption>El trend que se volvió nuestro.</figcaption>
+          </figure>
+          <figure class="photo-frame">
+            <img
+              src="../assets/img/que lindos ojos.jpg"
+              alt="Que lindos ojos"
+            />
+            <figcaption>Los ojos que me robaron el corazón.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- Momentos cotidianos -->
+    <section class="section section-alt" id="momentos">
+      <div class="section-inner">
+        <div class="section-header reveal-up">
+          <span class="section-number">02</span>
+          <h2 class="section-title">Las pequeñas cosas</h2>
+          <p class="section-subtitle">Lo cotidiano fue lo más extraordinario</p>
+        </div>
+
+        <div class="prose reveal-up">
+          <p>
+            No fueron solo los viajes. Fueron las cenas que te preparaba, las
+            veces que nos reímos hasta llorar, cuando nos abrazabamos hasta
+            quedarnos dormidos, los domingos cualquiera, las noches de
+            peliculas, series y animes. Fue saber las respuestas el uno del otro
+            sin siquiera mirarnos.
+          </p>
+        </div>
+
+        <div class="masonry-grid reveal-up">
+          <figure class="masonry-item">
+            <img
+              src="../assets/img/la cena que hice con cariño para ti en el hotel de vallarta.jpg"
+              alt="Cena en Vallarta"
+            />
+            <figcaption>La cena que te hice con cariño en Vallarta.</figcaption>
+          </figure>
+          <figure class="masonry-item">
+            <img
+              src="../assets/img/nuestra primera compra de uber eats cuando llego a chihuahua.jpeg"
+              alt="Uber Eats"
+            />
+            <figcaption>
+              Nuestra primera compra de Uber Eats en Chihuahua.
+            </figcaption>
+          </figure>
+          <figure class="masonry-item">
+            <img
+              src="../assets/img/estabas llorando porque tus huevitos quedaron bien buenos.jpg"
+              alt="Huevitos"
+            />
+            <figcaption>
+              Llorando porque los huevitos quedaron bien buenos.
+            </figcaption>
+          </figure>
+          <figure class="masonry-item">
+            <img
+              src="../assets/img/almuerzo de dennys cumpleañero.jpg"
+              alt="Dennys"
+            />
+            <figcaption>
+              Tu cumpleaños en Denny's — el restaurante de cadena donde los
+              desayunos eran gratis ese día.
+            </figcaption>
+          </figure>
+          <figure class="masonry-item masonry-item-landscape">
+            <img src="../assets/img/danyalberca.jpg" alt="Dany alberca" />
+            <figcaption>
+              La alberca de Dany — la casa de un amigo que frecuentábamos
+              bastante.
+            </figcaption>
+          </figure>
+          <figure class="masonry-item">
+            <img
+              src="../assets/img/la primera vez que vimos una alberca en nuestras vidas y teniamos que tomarnos una foto en ella.jpg"
+              alt="Primera alberca"
+            />
+            <figcaption>
+              La primera alberca del hotel — Mayan Palace, Nuevo Vallarta. Era
+              una broma, pero obvio teníamos que tomarnos una foto ahí.
+            </figcaption>
+          </figure>
+        </div>
+
+        <div
+          class="feature-photo reveal-up"
+          style="max-width: 700px; position: relative"
+        >
+          <video
+            id="featureVideo"
+            muted
+            loop
+            playsinline
+            style="
+              width: 100%;
+              aspect-ratio: 9/16;
+              object-fit: cover;
+              filter: sepia(0.08) contrast(0.95);
+            "
+          >
+            <source
+              src="../assets/vid/me da mucha risa que en este video sin vernos, sabiamos exactamente las respuestas correctas y nos conocíamos tan bien.mov"
+              type="video/quicktime"
+            />
+            <source
+              src="../assets/vid/me da mucha risa que en este video sin vernos, sabiamos exactamente las respuestas correctas y nos conocíamos tan bien.mov"
+              type="video/mp4"
+            />
+          </video>
+          <button
+            class="video-unmute-btn"
+            id="videoUnmuteBtn"
+            title="Activar sonido"
+          >
+            <span class="unmute-icon">🔇</span>
+            <span class="unmute-text">Activar sonido</span>
+          </button>
+          <div class="feature-caption">
+            <p>
+              Sin vernos, sabíamos exactamente las respuestas correctas. Nos
+              conocíamos así de bien.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Mar / Playa -->
+    <section class="section" id="mar">
+      <div class="section-inner">
+        <div class="section-header reveal-up">
+          <span class="section-number">03</span>
+          <h2 class="section-title">Donde el mar nos escuchó</h2>
+          <p class="section-subtitle">Nuevo Vallarta · Arena, sal y nosotros</p>
+        </div>
+
+        <div class="prose reveal-up">
+          <p>
+            La playa fue testigo de casi todo. De tus miradas distraídas viendo
+            al horizonte mientras yo, distraído, te veía a ti. De las veces que
+            casi nos comen unos cocodrilos en ese puente. De las junglas, del
+            sol, de tus pies en la arena.
+          </p>
+        </div>
+
+        <div class="feature-photo reveal-up">
+          <img
+            src="../assets/img/tu modo distraida viendo a la playa y yo viendote a ti porque estas mas linda que cualquier vista.jpg"
+            alt="Tu modo distraida"
+          />
+          <div class="feature-caption">
+            <p>
+              Tú, distraída viendo a la playa. Y yo, viéndote a ti — porque
+              estás más linda que cualquier vista.
+            </p>
+          </div>
+        </div>
+
+        <div class="photo-grid three-col reveal-up">
+          <figure class="photo-frame">
+            <img src="../assets/img/modo playeros.jpg" alt="Modo playeros" />
+            <figcaption>Modo playeros.</figcaption>
+          </figure>
+          <figure class="photo-frame">
+            <img
+              src="../assets/img/casi nos comen unos cocodrilos en ese puente de la playa.jpg"
+              alt="Cocodrilos"
+            />
+            <figcaption>Cuando casi nos comen los cocodrilos.</figcaption>
+          </figure>
+          <figure class="photo-frame">
+            <img
+              src="../assets/img/trend de agarrarme la mano mientras volteas a ver la jungla de la playa mientras te tomo la foto.jpg"
+              alt="Jungla"
+            />
+            <figcaption>La jungla, tu mirada, mi mano.</figcaption>
+          </figure>
+        </div>
+
+        <div class="location-note reveal-up">
+          <div class="note-icon">🌊</div>
+          <h4>La vista más bonita del hotel</h4>
+          <p>No era el océano. Eras tú. Siempre fuiste tú.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- París -->
+    <section class="section section-paris" id="paris">
+      <div class="section-inner">
+        <div class="section-header reveal-up">
+          <span class="section-number">04</span>
+          <h2 class="section-title">París, contigo</h2>
+          <p class="section-subtitle">
+            La ciudad del amor, pero sobre todo — tu cumpleaños, tu año nuevo
+          </p>
+        </div>
+
+        <div class="prose reveal-up">
+          <p>
+            Intenté que ese fuera el mejor cumpleaños de tu vida. París, año
+            nuevo, la Torre Eiffel brillando a medianoche. No sé si lo logré,
+            pero sé que cada rincón de esa ciudad tiene tu nombre grabado en mi
+            memoria.
+          </p>
+        </div>
+
+        <div class="paris-timeline reveal-up">
+          <div class="timeline-item">
+            <div class="timeline-image">
+              <img
+                src="../assets/img/intente que este fuera el mejor cumpleaños de tu vida, en paris y año nuevo.jpg"
+                alt="Cumpleaños París"
+              />
+            </div>
+            <div class="timeline-text">
+              <h3>Tu cumpleaños en París</h3>
+              <p>Quería darte el mundo. Te di una ciudad.</p>
+            </div>
+          </div>
+
+          <div class="timeline-item timeline-reverse">
+            <div class="timeline-image">
+              <img
+                src="../assets/img/foto de nosotros frente a la torre eiffel.jpg"
+                alt="Torre Eiffel"
+              />
+            </div>
+            <div class="timeline-text">
+              <h3>La Torre Eiffel</h3>
+              <p>
+                Construida por Gustave Eiffel para la Exposición Universal de
+                1889, debía ser derribada veinte años después. Permanece de pie
+                hasta hoy — igual que ciertos recuerdos que, aunque el tiempo
+                intente derribarlos, se niegan a caer.
+              </p>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-image">
+              <img
+                src="../assets/img/foto de nosotros frente al arco del triunfo, de las fotos donde mas guapos salimos.jpg"
+                alt="Arco del Triunfo"
+              />
+            </div>
+            <div class="timeline-text">
+              <h3>El Arco del Triunfo</h3>
+              <p>
+                De las fotos donde más guapos salimos. Napoleón lo mandó
+                construir en 1806 para celebrar sus victorias. Nosotros no
+                tuvimos batallas que celebrar esa tarde — solo tenernos el uno
+                al otro ya era la victoria más grande.
+              </p>
+            </div>
+          </div>
+
+          <div class="timeline-item timeline-reverse">
+            <div class="timeline-image">
+              <img
+                src="../assets/img/foto de nosotros frente al museo louvre.jpg"
+                alt="Louvre"
+              />
+            </div>
+            <div class="timeline-text">
+              <h3>Museo del Louvre</h3>
+              <p>
+                El museo más visitado del mundo alberga la Mona Lisa, una mujer
+                cuya sonrisa ha desconcertado al mundo durante cinco siglos. Yo
+                encontré otra sonrisa más linda. La tuya.
+              </p>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-image">
+              <img
+                src="../assets/img/el tour que hicimos en bote alrededor de la torre eifel en el rio senna.jpg"
+                alt="Río Sena"
+              />
+            </div>
+            <div class="timeline-text">
+              <h3>El río Sena</h3>
+              <p>
+                Un tour en bote alrededor de la Torre. El río ha sido testigo de
+                mil historias a lo largo de los siglos — la nuestra fue una más.
+                Y una de las más bonitas.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="photo-grid three-col reveal-up">
+          <figure class="photo-frame">
+            <img
+              src="../assets/img/mi super modelo frente a la torre eifel, opacaste a la torre.jpg"
+              alt="Super modelo"
+            />
+            <figcaption>Mi super modelo, opacando a la Torre.</figcaption>
+          </figure>
+          <figure class="photo-frame">
+            <img
+              src="../assets/img/que linda te ves frente a la torre eiffel.jpg"
+              alt="Linda Torre Eiffel"
+            />
+            <figcaption>Mi super modelo, opacando a la Torre.</figcaption>
+          </figure>
+          <figure class="photo-frame">
+            <img
+              src="../assets/img/modo casual tomandonos una foto en la calle de noche con la torre eifel de fondo.jpg"
+              alt="Noche Torre Eiffel"
+            />
+            <figcaption>De noche, casual, con la Torre de fondo.</figcaption>
+          </figure>
+        </div>
+
+        <div class="photo-grid two-col reveal-up">
+          <figure class="photo-frame">
+            <img
+              src="../assets/img/cuando andabamos de tour viendo iglesias en francia.jpg"
+              alt="Iglesias Francia"
+            />
+            <figcaption>El tour de las iglesias en Francia.</figcaption>
+          </figure>
+          <figure class="photo-frame">
+            <img
+              src="../assets/img/nuestra primera peda en francia con cervecitas.jpg"
+              alt="Primera peda Francia"
+            />
+            <figcaption>Nuestra primera peda en Francia.</figcaption>
+          </figure>
+        </div>
+
+        <div class="photo-grid three-col reveal-up">
+          <figure class="photo-frame">
+            <img
+              src="../assets/img/en algun lugar de francia, posiblemente turisteando el centro de la ciudad con unas luces colgadas que se ven bonitas.jpg"
+              alt="Luces Francia"
+            />
+            <figcaption>Las luces de una ciudad cualquiera.</figcaption>
+          </figure>
+          <figure class="photo-frame">
+            <img
+              src="../assets/img/en algun lugar de francia, posiblmente bebiendo.jpg"
+              alt="Bebiendo Francia"
+            />
+            <figcaption>En algún lugar de Francia.</figcaption>
+          </figure>
+          <figure class="photo-frame">
+            <img
+              src="../assets/img/nosotros modo guapos en algun lugar de francia.jpg"
+              alt="Modo guapos"
+            />
+            <figcaption>Modo guapos, en algún lugar de Francia.</figcaption>
+          </figure>
+        </div>
+
+        <div class="photo-grid two-col reveal-up">
+          <figure class="photo-frame">
+            <img
+              src="../assets/img/navidad en paris, de las galerias mas fresonas del mundo, galerias la fallete.jpg"
+              alt="Navidad París"
+            />
+            <figcaption>Navidad en las Galerías Lafayette.</figcaption>
+          </figure>
+          <figure class="photo-frame">
+            <img
+              src="../assets/img/louis vuitton en galerias la fallete.jpg"
+              alt="Louis Vuitton"
+            />
+            <figcaption>Louis Vuitton, Galerías Lafayette.</figcaption>
+          </figure>
+        </div>
+
+        <div class="photo-grid two-col reveal-up">
+          <figure class="photo-frame">
+            <img
+              src="../assets/img/mas fotos del tour en paris de tu cumpleaños.jpg"
+              alt="Más fotos París"
+            />
+            <figcaption>Más fotos del tour.</figcaption>
+          </figure>
+          <figure class="photo-frame">
+            <img
+              src="../assets/img/otra foto de nosotros frente a la torre eiffel.jpg"
+              alt="Otra Torre Eiffel"
+            />
+            <figcaption>Porque nunca eran suficientes.</figcaption>
+          </figure>
+        </div>
+
+        <div class="photo-grid two-col reveal-up">
+          <figure class="photo-frame">
+            <img
+              src="../assets/img/mi modelo comiendose un quesito con papas estilo frances.jpg"
+              alt="Quesito papas"
+            />
+            <figcaption>
+              Mi modelo con quesito y papas estilo francés.
+            </figcaption>
+          </figure>
+          <figure class="photo-frame">
+            <img
+              src="../assets/img/la cara que pusiste al darte cuenta que no te gusto el sake.jpg"
+              alt="Sake"
+            />
+            <figcaption>
+              La cara que pusiste al darte cuenta de que el sake que tanto
+              pediste con ilusión… no te gustó nada. 🤢
+            </figcaption>
+          </figure>
+        </div>
+
+        <div class="photo-grid two-col reveal-up">
+          <figure class="photo-frame">
+            <img
+              src="../assets/img/nuestro tour al paso de gordos para el buffet de tepanyaki.jpg"
+              alt="Tepanyaki"
+            />
+            <figcaption>El tour al tepanyaki.</figcaption>
+          </figure>
+          <figure class="photo-frame">
+            <img
+              src="../assets/img/cuando me diste la bienvenida de vuelta de mi viaje.jpg"
+              alt="Bienvenida"
+            />
+            <figcaption>
+              Cuando me diste la bienvenida de vuelta y no pude ocultar mi
+              sonrisa de felicidad al tenerte de nuevo a mi lado.
+            </figcaption>
+          </figure>
+        </div>
+
+        <div class="location-note reveal-up">
+          <div class="note-icon">🗼</div>
+          <h4>¿Sabías que...?</h4>
+          <p>
+            La Torre Eiffel crece hasta 15 cm en verano por la dilatación del
+            hierro. Algunas cosas también crecen con el calor — como lo que
+            sentimos en esos días.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Castillos -->
+    <section class="section section-castillos" id="castillos">
+      <div class="section-inner">
+        <div class="section-header reveal-up">
+          <span class="section-number">05</span>
+          <h2 class="section-title">Castillos donde fuimos eternos</h2>
+          <p class="section-subtitle">
+            Carcasona · Mont Saint-Michel · Versalles
+          </p>
+        </div>
+
+        <div class="prose reveal-up">
+          <p>
+            Los castillos fueron construidos para resistir el tiempo, las
+            guerras, las tormentas. Los tres que visitamos siguen en pie. Y
+            dentro de sus muros, hubo una historia de amor muy linda — la
+            nuestra. El amor es más fuerte que el desamor. Y a veces, también
+            más fuerte que el tiempo.
+          </p>
+        </div>
+
+        <!-- Carcasona -->
+        <div class="castillo-block reveal-up">
+          <h3 class="castillo-title">🏰 Cité de Carcasona</h3>
+          <p class="castillo-desc">
+            Una fortaleza medieval con más de 2.500 años de historia. Sus
+            murallas dobles resistieron cruzados, reyes y el paso de los siglos.
+            En 1849 estuvo a punto de ser demolida; Victor Hugo y Prosper
+            Mérimée la salvaron. Algunas cosas preciosas necesitan que alguien
+            las defienda.
+          </p>
+          <div class="photo-grid two-col">
+            <figure class="photo-frame">
+              <img
+                src="../assets/img/nosotros llegando al castillo de carcassone.jpg"
+                alt="Llegada Carcasona"
+              />
+              <figcaption>Nuestra llegada a Carcasona.</figcaption>
+            </figure>
+            <figure class="photo-frame">
+              <img
+                src="../assets/img/mi modelo tomandose foto frente a una armadura de caballero en el castillo de carcassone.jpg"
+                alt="Armadura"
+              />
+              <figcaption>Mi modelo frente a una armadura.</figcaption>
+            </figure>
+          </div>
+          <div class="photo-grid two-col">
+            <figure class="photo-frame">
+              <img
+                src="../assets/img/mi super modelo tomandose una foto en los pasillos del castillo de carcassone.jpg"
+                alt="Pasillos Carcasona"
+              />
+              <figcaption>Los pasillos del castillo.</figcaption>
+            </figure>
+            <figure class="photo-frame">
+              <img
+                src="../assets/img/nuestra comida casual dentro de un castillo medieval de carcasonne mientras comemos casoulette, platillo de frijoles o algo similar con pato.jpg"
+                alt="Cassoulet"
+              />
+              <figcaption>
+                Cassoulet dentro del castillo. Frijoles y pato, nada más
+                medieval que eso.
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+
+        <!-- Mont Saint-Michel -->
+        <div class="castillo-block reveal-up">
+          <h3 class="castillo-title">⛪ Mont Saint-Michel</h3>
+          <p class="castillo-desc">
+            El castillo flotante sobre el mar. Una abadía que, según la marea,
+            se convierte en isla o en península. Durante la Guerra de los Cien
+            Años los ingleses jamás pudieron tomarlo — las arenas movedizas y la
+            marea los detenían. Algunas islas son más difíciles de conquistar
+            que otras. Y hay cosas que, aunque el mundo intente llevárselas,
+            permanecen.
+          </p>
+          <div class="photo-grid three-col">
+            <figure class="photo-frame">
+              <img
+                src="../assets/img/otra foto de nosotros frente al monte san michel.jpg"
+                alt="Mont Saint-Michel"
+              />
+              <figcaption>Frente al castillo del mar.</figcaption>
+            </figure>
+            <figure class="photo-frame">
+              <img
+                src="../assets/img/selfie de enojados en monte san michel, el castillo flotante del mar.jpg"
+                alt="Selfie enojados"
+              />
+              <figcaption>
+                Selfie de enojados. Ya ni recuerdo por qué.
+              </figcaption>
+            </figure>
+            <figure class="photo-frame">
+              <img
+                src="../assets/img/trend de agarrarme la mano mientras volteas a ver el castillo del mar flotante, el monte san michel.jpg"
+                alt="Trend Mont"
+              />
+              <figcaption>El trend, el castillo flotante, tu mano.</figcaption>
+            </figure>
+          </div>
+        </div>
+
+        <!-- Versalles -->
+        <div class="castillo-block reveal-up">
+          <h3 class="castillo-title">👑 Palacio de Versalles</h3>
+          <p class="castillo-desc">
+            Construido por Luis XIV, el Rey Sol, para demostrar que no había
+            poder mayor que el suyo. Tiene 2.300 habitaciones, 67 escaleras y
+            jardines que se extienden hasta donde la vista alcanza. Dicen que
+            allí se firmó la independencia de Estados Unidos y el fin de la
+            Primera Guerra Mundial. Lo que no cuentan los libros es que allí
+            también caminamos tú y yo. Y eso, para mí, vale más que todos los
+            tratados.
+          </p>
+          <div class="photo-grid one-col">
+            <figure class="photo-frame">
+              <img
+                src="../assets/img/trend de agarrarme la mano mientras volteas a ver uno de los castillos mas fresones de francia, el palacio de versalles.jpg"
+                alt="Versalles"
+              />
+              <figcaption>
+                Jalando mi mano mientras mirabas el Palacio de Versalles. Yo,
+                detrás de ti, te tomaba esta foto de espaldas — como siempre,
+                admirándote sin que te dieras cuenta.
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+
+        <div class="location-note reveal-up">
+          <div class="note-icon">🗝️</div>
+          <h4>En estos castillos hubo una historia de amor muy linda.</h4>
+          <p>
+            Los muros son eternos. Las personas, no tanto. Pero lo que vivimos
+            ahí — eso tampoco se va a caer jamás.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Momentos especiales -->
+    <section class="section section-alt" id="especial">
+      <div class="section-inner">
+        <div class="section-header reveal-up">
+          <span class="section-number">06</span>
+          <h2 class="section-title">
+            Los días en los que estuve más orgulloso
+          </h2>
+          <p class="section-subtitle">
+            Tu graduación, tu cumpleaños, las noches que fuimos nuestros
+          </p>
+        </div>
+
+        <div class="feature-photo reveal-up">
+          <img
+            src="../assets/img/el dia en el que he estado mas orgulloso de ti, tu graduacion.jpg"
+            alt="Tu graduación"
+          />
+          <div class="feature-caption">
+            <p>
+              El día en el que he estado más orgulloso de ti. Tu graduación.
+              Verte lograr todo lo que te propusiste fue un privilegio que jamás
+              olvidaré.
+            </p>
+          </div>
+        </div>
+
+        <div class="photo-grid three-col reveal-up">
+          <figure class="photo-frame">
+            <img
+              src="../assets/img/boda de la hermana de joel modo guapos.jpg"
+              alt="Boda"
+            />
+            <figcaption>La boda de la hermana de Joel.</figcaption>
+          </figure>
+          <figure class="photo-frame">
+            <img
+              src="../assets/img/foto de las primeras veces que fuimos de antro.jpg"
+              alt="Antro"
+            />
+            <figcaption>Las primeras veces que fuimos de antro.</figcaption>
+          </figure>
+          <figure class="photo-frame">
+            <img
+              src="../assets/img/hasta vestida de cholita siempre te veias muy bien.jpg"
+              alt="Cholita"
+            />
+            <figcaption>Hasta vestida de cholita te veías bien.</figcaption>
+          </figure>
+        </div>
+
+        <div class="photo-grid two-col reveal-up">
+          <figure class="photo-frame">
+            <img
+              src="../assets/img/intimidando a cualquiera que se quiera meter contigo.jpg"
+              alt="Intimidando"
+            />
+            <figcaption>
+              Intimidando a cualquiera que se quiera meter contigo.
+            </figcaption>
+          </figure>
+          <figure class="photo-frame">
+            <img
+              src="../assets/img/no se quien te hizo enojar en ese momento pero agradezco que no sea yo al que estas volteando a ver con mirada asesina.jpg"
+              alt="Mirada asesina"
+            />
+            <figcaption>
+              Agradezco que esa mirada asesina no fuera para mí.
+            </figcaption>
+          </figure>
+        </div>
+
+        <div class="photo-grid two-col reveal-up">
+          <figure class="photo-frame">
+            <img
+              src="../assets/img/mi super modelo, siempre me encantaba tomarte fotos donde fuera, como aqui que fue cuando fuimos a turistear paseo central jaja.jpg"
+              alt="Paseo central"
+            />
+            <figcaption>
+              Siempre me encantaba tomarte fotos donde fuera. Paseo Central.
+            </figcaption>
+          </figure>
+          <figure class="photo-frame">
+            <img
+              src="../assets/img/algun dia haras llorar a una cebolla pero por mientras, seguiremos al pendiente mientras la cebolla te hace llorar a ti.jpg"
+              alt="Cebolla"
+            />
+            <figcaption>
+              Algún día harás llorar a una cebolla. Por mientras, la cebolla va
+              ganando 1-0... pero tú tienes la ventaja de ser más guapa. 🧅😏
+            </figcaption>
+          </figure>
+        </div>
+
+        <div class="photo-grid two-col reveal-up">
+          <figure class="photo-frame">
+            <img
+              src="../assets/img/la entrada a la tumba de tutancamon.jpg"
+              alt="Tutankamón"
+            />
+            <figcaption>La entrada a la tumba de Tutankamón.</figcaption>
+          </figure>
+          <figure class="photo-frame">
+            <img
+              src="../assets/img/el amor que siento por ti llega hasta la siguiente galaxia....jpg"
+              alt="Galaxia"
+            />
+            <figcaption>
+              El amor que siento por ti llega hasta la siguiente galaxia.
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- Cierre -->
+    <section class="section section-closing" id="continuar">
+      <div class="section-inner">
+        <div class="closing-content reveal-up">
+          <div class="closing-ornament">✦ ✦ ✦</div>
+
+          <p class="closing-paragraph">Sé que tuvimos muchos errores.</p>
+          <p class="closing-paragraph">
+            Sé que la distancia nos apartó — aunque no fue la única razón.
+          </p>
+          <p class="closing-paragraph">
+            Sé que todo terminó tan abruptamente que nunca tuve la oportunidad
+            de decirte todo lo que quería decirte.
+          </p>
+
+          <div class="closing-divider"></div>
+
+          <p class="closing-paragraph closing-emphasis">
+            Pero hoy, años después, sigo recordando a la chica tímida de la
+            playera azul marino.
+          </p>
+          <p class="closing-paragraph closing-emphasis">
+            Todavía siento las mariposas.
+          </p>
+          <p class="closing-paragraph closing-emphasis">
+            Todavía veo la Torre Eiffel, y me acuerdo de nosotros.
+          </p>
+
+          <div class="closing-divider"></div>
+
+          <p class="closing-paragraph">
+            No te muestro esto para pedirte nada. Solo quería que supieras que
+            todo esto sigue aquí — los recuerdos, las fotos, lo que fuimos.
+          </p>
+
+          <p class="closing-paragraph">
+            Si algún día quieres platicar — sin prisa ni reproches, solo
+            platicar — aquí estaré.
+          </p>
+
+          <div class="closing-final reveal-up">
+            <p class="closing-final-text">Esta historia…</p>
+            <h2 class="closing-title">aún tiene capítulos sin escribir.</h2>
+            <p class="closing-final-sub">
+              Y quizás, algún día, volvamos a coincidir en el mismo capítulo.
+            </p>
+
+            <div class="closing-cta">
+              <a href="#" class="cta-button" onclick="openLetter(event)">
+                <span class="cta-icon">✉</span>
+                <span class="cta-text">Cuando gustes platicar</span>
+              </a>
+            </div>
+          </div>
+
+          <div class="closing-signature">
+            <p>— Con todo el cariño que aún guardo para ti.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Carta flotante -->
+    <div class="letter-overlay" id="letterOverlay">
+      <div class="letter-card">
+        <button class="letter-close" onclick="closeLetter()">×</button>
+        <div class="letter-content">
+          <h3>Hola, bonita.</h3>
+          <p>
+            Si estás leyendo esto, es porque algo en ti quiso llegar hasta aquí.
+          </p>
+          <p>
+            No importa cuánto tiempo haya pasado. No importa todo lo que haya
+            sucedido.
+          </p>
+          <p>
+            Cuando quieras platicar — de lo que sea, a la hora que sea —
+            avísame.
+          </p>
+          <p class="letter-signature">— El que nunca te olvidó.</p>
+        </div>
+      </div>
+    </div>
+
+    <footer class="site-footer">
+      <p>Hecho con ♡ · 2014 — ∞</p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
