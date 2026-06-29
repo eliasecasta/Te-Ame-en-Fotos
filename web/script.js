@@ -277,7 +277,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function loadTrack(index, player) {
         const track = playlist[index];
-        player.src = `../assets/music/${track.file}`;
+        player.src = `assets/music/${track.file}`;
         player.load();
     }
 
@@ -509,7 +509,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (featureVideo) {
         // Force video to load by setting src directly
-        const videoSrc = '../assets/vid/me da mucha risa que en este video sin vernos, sabiamos exactamente las respuestas correctas y nos conociamos tan bien.mov';
+        const videoSrc = 'assets/vid/me da mucha risa que en este video sin vernos, sabiamos exactamente las respuestas correctas y nos conociamos tan bien.mov';
         featureVideo.src = videoSrc;
         featureVideo.load();
 
