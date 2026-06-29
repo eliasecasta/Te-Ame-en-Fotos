@@ -1008,6 +1008,11 @@ img {
     object-position: center center;
 }
 
+.image-horizontal-crop img {
+    object-fit: cover;
+    object-position: center center;
+}
+
 .editorial-item:hover img {
     filter: sepia(0) contrast(1) brightness(1);
     transform: scale(1.04);
